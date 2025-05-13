@@ -27,6 +27,8 @@
 ```bash
 git config --global user.name "Your Name"
 git config --global user.email "your.email@example.com"
+```
+
 🔍 Git Architecture Explained
 1️⃣ Working Tree
 The Working Tree is where all the files for your project are stored on your local machine.
