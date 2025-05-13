@@ -1,218 +1,161 @@
-# Git-Commands
+# 🛠️ Source Code Management Tool (SCM)
 
-What is Source code management tool?
+## 📌 Key Features
 
-- Version Control: It allows teams of developers to keep track of changes to their codebase.
+- **Version Control**: It allows teams of developers to keep track of changes to their codebase.
+- **Collaboration**: It enables multiple developers to work together on the same project.
+- **Continuous Integration/Continuous Deployment (CI/CD)**:  
+  It integrates with various CI/CD tools (like GitHub Actions, Jenkins, and Travis CI) to automate testing, building, and deploying your code.
 
-- Collaboration: It enables multiple developers to work together on the same project.
+## 💡 Examples
 
-- Continuous Integration/Continuous Deployment (CI/CD)
-It integrates with various CI/CD tools (like GitHub Actions, Jenkins, and Travis CI) to automate testing, building, and deploying your code.
-
-Example:
-
-1. Git hub
-2. Bit Bucket
-3. Clear case
+1. GitHub  
+2. Bitbucket  
+3. ClearCase  
 4. SVN
 
-________________________
-Git Hub and git 
-________________________
+---
 
-1. Create git hub account
-2. Install git in local system
-3. Configure name & email using following commands (One time configuration)
+## 🔁 GitHub and Git
 
-git config --global user.name ""
-git config --gloabl user.email ""
+### 🧰 Prerequisites
 
-Let's go over the explanation of Git Architecture in detail:
+1. Create a GitHub account
+2. Install Git on your local system
+3. Configure name and email using the following commands (One-time configuration):
 
-1) Working Tree
-The Working Tree (also called the Working Directory or Workspace) is where all the files for your project are stored on your local machine.
+```bash
+git config --global user.name "Your Name"
+git config --global user.email "your.email@example.com"
+🔍 Git Architecture Explained
+1️⃣ Working Tree
+The Working Tree is where all the files for your project are stored on your local machine.
 
-2) Staging Area
-The Staging Area (also called the Index) is where files are prepared before being committed to the repository.
-When you make changes in your working directory and want to save them to the local repository, you first add them to the staging area using the git add command.
-Once files are in the staging area, they are ready to be committed. The staging area holds a snapshot of your changes and prepares them for the next commit.
-In short, it's a "pre-commit" area where you gather all the changes you want to be part of the next commit.
+2️⃣ Staging Area (Index)
+The Staging Area is a "pre-commit" area where changes are added before being committed using git add.
 
-3) Local Repository
-The Local Repository is the place where Git stores all your project’s history. It's stored on your local machine.
-When you commit changes (git commit), the changes are recorded into your local repository.
-This local repository contains a .git folder that holds all of the project’s version history, configuration settings, and other important Git-related data.
-Commits in the local repository allow you to revert to previous versions, branch out, and compare changes locally without affecting the central repository.
+3️⃣ Local Repository
+Your local .git folder that stores all the commits and project history.
 
-4) Central Repository
-The Central Repository (also called the Remote Repository) is usually hosted on a platform like GitHub, GitLab, or Bitbucket.
-It is shared by multiple contributors and serves as the main repository that everyone pulls from and pushes to.
-Developers clone this repository to create their local copies and regularly push their commits to share their changes, as well as pull others' changes from the central repository.
-This central repository is accessible to all team members.
+4️⃣ Central Repository (Remote)
+Hosted on platforms like GitHub, GitLab, or Bitbucket. Team members push and pull from this repository.
 
-
-
-
-##############
-Git Commands
-#############
-
+🔧 Git Commands
 1. git init
-________________
-Purpose: Initializes a new Git repository in the current directory.
+Initializes a new Git repository in the current directory.
 
-Usage: You run this command in a project folder to convert it into a Git repository. It creates a .git directory where Git stores all its configuration files and version history.
-
-Example:
+bash
+Copy
+Edit
 git init
-________________________________________________________________________________________________________________________
 2. git status
-_______________
-Purpose: Shows the current status of the working directory and staging area.
-Usage: This command is used to check whether there are any modified, added, or deleted files in the working directory that need to be staged or committed.
+Shows the status of changes as untracked, modified, or staged.
 
+bash
+Copy
+Edit
 git status
+3. git add
+Adds changes to the staging area.
 
-It will show if files are untracked, modified, or staged.
-
-________________________________________________________________________________________________________________________
-
-3 git add
-_______________
-
-Purpose: Adds files or changes to the staging area (index) in preparation for a commit.
-Usage: You specify the file(s) to add or use a wildcard (e.g., git add . to add all files).
-
-
+bash
+Copy
+Edit
 git add test.txt
-git add .  # To add all changes
-________________________________________________________________________________________________________________________
+git add .       # Adds all files
+4. git commit
+Commits staged files to the local repository.
 
-4 git commit
-_______________
-Purpose: Commits the staged files to the local repository, saving your changes along with a commit message.
-Usage: This records your staged changes and adds them to the local repository’s history.
-
+bash
+Copy
+Edit
 git commit -m "Commit message describing changes"
-________________________________________________________________________________________________________________________
+5. git push
+Pushes committed changes to the remote repository.
 
-5) git push
-_______________
-Purpose: Pushes the committed changes from the local repository to the central repository (remote repo like GitHub).
-Usage: After committing locally, use this to share your changes with others by sending them to the central repository.
-
-git push origin main  # Push changes to the "main" branch
-________________________________________________________________________________________________________________________
-
-6) git restore
-_______________
-Purpose: Used to undo changes in the working directory and the staging area.
-Usage:
-If a file is unstaged, git restore will discard local changes made to that file.
-If a file is staged, git restore --staged will unstage the file but keep the changes in the working directory.
-Examples:
-
-git restore test.txt
-Unstage a staged file (without discarding changes):
-
-git restore --staged test.txt
-
-________________________________________________________________________________________________________________________
-7) git log
-__________
-Purpose: Displays the commit history, including commit IDs, author information, dates, and commit messages.
-Usage: This is useful to view the history of changes made to the project.
-
-git log
-
-To view a simpler summary, you can add options:
-
-git log --oneline
-
-________________________________________________________________________________________________________________________
-8) git rm
-_______________
-Purpose: Removes a file from both the working directory and the staging area, and it schedules the deletion for the next commit.
-Usage: If you want to delete a file, this command removes it and stages the change for the commit.
-
-git rm file_name.txt
-git commit -m "Remove test.txt"
+bash
+Copy
+Edit
 git push origin main
-___________________________________________________________________________________________________________________________
+6. git restore
+Used to discard changes in the working directory or unstage files.
 
-9) git clone
-_______________
-Purpose: Downloads a copy of an existing Git repository (usually from a remote central repository) to your local system.
-Usage: This command is typically used when you want to start working on an existing project and need a copy of the central repository on your machine.
+bash
+Copy
+Edit
+git restore test.txt               # Discard changes
+git restore --staged test.txt     # Unstage changes
+7. git log
+Displays commit history.
 
+bash
+Copy
+Edit
+git log
+git log --oneline   # Simple summary
+8. git rm
+Removes a file from the working directory and stages the deletion.
+
+bash
+Copy
+Edit
+git rm file_name.txt
+git commit -m "Remove file"
+git push origin main
+9. git clone
+Creates a copy of an existing Git repository.
+
+bash
+Copy
+Edit
 git clone https://github.com/username/repository.git
-___________________________________________________________________________________________________________________________
+🔄 10. git pull
+Fetches and merges changes from the remote repository.
 
-10) git pull
-_______________
-Purpose: Fetches and merges changes from the central repository to your local repository.
-Usage: Use this to keep your local repository up to date with changes made by other collaborators. However, conflicts may arise if your local changes clash with those on the central repo.
-
+bash
+Copy
+Edit
 git pull origin main
-
-Note: Conflicts occur when there are changes in the same part of a file in both your local and the central repository. You’ll need to manually resolve these conflicts.
-_____________________________________________________________________________________________________________________________
-
-11) git gui
-_______________
-Purpose: Opens the Git GUI tool, which is a graphical user interface (GUI) for interacting with Git repositories.
-Usage: Some users prefer to use a GUI rather than the command line to manage their repositories. The git gui tool provides a more visual interface for Git operations like commit, branch, and status management.
-
-Example: git gui
-
-This will open a graphical tool where you can perform many of the Git operations like staging, committing, and viewing the commit history without needing to use
-______________________________________________________________________________________________________________________
-
-
-git pull versus git fetch
-___________________________
+🆚 git pull vs git fetch
 a. git pull
+Downloads and merges remote changes into your branch.
 
--> Downloads changes from the remote repository (e.g., GitHub, GitLab) to the local repository.
--> Automatically merges the fetched changes into your current working branch.
--> May cause merge conflicts if there are conflicting change
-
-Example:
+bash
+Copy
+Edit
 git pull
-_______________
-
 b. git fetch
-_______________
--> Downloads the latest changes from the remote repository but does not merge them into your working branch.
--> This is a safe operation because it allows you to review the changes before merging.
--> The fetched changes are stored in origin/<branch>, and you can manually merge them when ready.
+Downloads changes but does not merge them automatically.
 
-Example:
+bash
+Copy
+Edit
 git fetch
 git merge
+11. git gui
+Opens the Git GUI interface for performing Git operations visually.
 
-______________________________________________________________________________________________________________________
-12. git stash:
-_______________
--> git stash is a command used in Git to temporarily save changes that are not yet committed to work on something else without losing your modifications.
--> when you run git stash, all your modified but unstaged or staged changes are temporarily stored in a hidden area
+bash
+Copy
+Edit
+git gui
+12. git stash
+Temporarily saves uncommitted changes for later.
 
-example: 
-git stash - to store changes in temp area
-git stash apply - to get the changes from temp area back
+bash
+Copy
+Edit
+git stash          # Stashes changes
+git stash apply    # Applies stashed changes
+13. git cherry-pick
+Applies a specific commit from another branch.
 
+bash
+Copy
+Edit
+git cherry-pick <commit-id>
+📌 Interview Question:
+You have done 5 commits today but want to merge only the 3rd commit into a branch. What will you do?
+✅ Answer: Use git cherry-pick.
 
-
-
-13. git cherrypic:
-__________________
--> git cherry-pick is used to apply a specific commit from one branch to another without merging the entire branch.
-
-Interview Question?
-
-You have done today 5 commits, but you want to merge only 3rd commit to particular branch, how will you do?
-Answer: git cherrypic
-
-Note: git merge will merge all the commit to a particular branch
-
-_______________
+Note: git merge merges all commits, while git cherry-pick merges specific ones.
